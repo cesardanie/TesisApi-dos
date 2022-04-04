@@ -7,14 +7,16 @@ using Tesis2.Models;
 
 namespace Tesis2.Context
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options) { 
-        
-        
-        
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {
+
+
+
         }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Creacionderegistros> Creacionderegistros { get; set; }
+       
 
     }
 }
