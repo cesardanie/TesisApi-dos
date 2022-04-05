@@ -5,6 +5,7 @@ using Tesis2.Models;
 using Tesis2.Models.Response;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,6 +39,23 @@ namespace Tesis2.Controllers
                 res.Mensaje = ex.Message;
             }
             return Ok(res);
+        }
+       [HttpGet]
+       public IActionResult Getoptenerultimoregistro()
+        {
+            RespuestaRegistroPagedos Resp = new RespuestaRegistroPagedos();
+            Creacionderegistros Restlist = new Creacionderegistros();
+            try {
+               
+                var lst = context.Creacionderegistros.ToList();
+                Resp.Registros=lst;
+                Resp.Mensaje = "Exito";
+
+            }catch(Exception e)
+            {
+                Resp.Mensaje = e.Message;   
+            }
+            return Ok(Resp);
         }
 
     }
