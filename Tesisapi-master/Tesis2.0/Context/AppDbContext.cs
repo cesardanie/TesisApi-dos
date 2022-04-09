@@ -16,6 +16,7 @@ namespace Tesis2.Context
         }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Creacionderegistros> Creacionderegistros { get; set; }
+        public DbSet<CuaadroMaestro> CuaadroMaestros { get; set; }
        
 
     }
