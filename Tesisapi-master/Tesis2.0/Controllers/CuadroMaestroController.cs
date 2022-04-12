@@ -39,5 +39,23 @@ namespace Tesis2.Controllers
             }
             return Ok(create);
         }
+        public async Task<IActionResult> PostCreacionMaestro(CuaadroMaestro CrearCuadro)
+        {
+            RespuestaRegistro res = new RespuestaRegistro();
+            try
+            {
+                res.Validacion = true;
+                res.Mensaje = "Con exito";
+                context.CuaadroMaestros.Add(CrearCuadro);
+                context.SaveChanges();
+                return Ok(res);
+
+            }
+            catch(Exception ex)
+            {
+                res.Mensaje = ex.Message;
+            }
+            return Ok(res);
+        }
     }
 }
